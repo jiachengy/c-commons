@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdint.h>
@@ -33,7 +32,6 @@ perf_t *perf_init(int counters, ...)
 		perf->attr[c].type = PERF_TYPE_HARDWARE;
 		perf->attr[c].disabled = 0;
 		perf->attr[c].inherit = 1;
-        printf("%llu\n", perf->attr[c].config);
 		perf->fd[c] = syscall(__NR_perf_event_open,
 		                      &(perf->attr[c]),
 		                      pid, -1, -1, 0);
